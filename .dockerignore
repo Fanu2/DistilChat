@@ -8,3 +8,11 @@ venv/
 .gitignore
 .idea
 .DS_Store
+# Ignore model weights or cached files
+**/models/
+**/model/
+*.bin
+*.pt
+*.h5
+.huggingface/
+cache/
