@@ -14,12 +14,8 @@ RUN pip install --upgrade pip && \
 # Copy the rest of your application code
 COPY . .
 
-# Expose port for FastAPI (you can change to 8501 for Streamlit or run both)
+# Expose port for FastAPI (adjust if different)
 EXPOSE 8000
 
-# Change the CMD below depending on what you want Railway to run by default:
-# Option A: Run your FastAPI app (if entry point is app.py and FastAPI instance is named "app")
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-
-# Option B: To run Streamlit app instead, comment the above and uncomment below:
-# CMD ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0"]
+# Run FastAPI from main.py (FastAPI instance must be named 'app')
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
